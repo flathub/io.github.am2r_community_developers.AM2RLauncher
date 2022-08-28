@@ -103,7 +103,7 @@ modules:
       - mkdir -p /app/bin
       - mkdir -p /app/lib/i386-linux-gnu
       - mkdir -p /app/lib/i386-linux-gnu/GL
-      - dotnet publish AM2RLauncher/AM2RLauncher.Gtk --source ./nuget-sources -p:PublishSingleFile=true -p:DebugType=embedded -c Release -r ubuntu.18.04-x64 --self-contained true
+      - dotnet publish AM2RLauncher/AM2RLauncher.Gtk --source ./nuget-sources -p:PublishSingleFile=true -p:DebugType=embedded -p:DefineConstants="NoAppImage;NoAutoUpdate" -c Release -r ubuntu.18.04-x64 --self-contained true
       - cp -r --remove-destination /run/build/AM2RLauncher/AM2RLauncher/AM2RLauncher.Gtk/bin/Release/net6.0/ubuntu.18.04-x64/publish/* /app/bin/
       - mv /app/bin/AM2RLauncher.Gtk /app/bin/AM2RLauncher
 
