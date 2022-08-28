@@ -27,9 +27,9 @@ finish-args:
 - --talk-name=org.kde.StatusNotifierWatcher
 
 # Fuse / Appimage related
-- --talk-name=org.freedesktop.Flatpak.*
+#- --talk-name=org.freedesktop.Flatpak.*
 - --device=all
-- --filesystem=/tmp
+#- --filesystem=/tmp
 
 # Java and x32 stuff
 - --env=JAVA_HOME=/app/jre
@@ -103,8 +103,6 @@ modules:
       - mkdir -p /app/bin
       - mkdir -p /app/lib/i386-linux-gnu
       - mkdir -p /app/lib/i386-linux-gnu/GL
-      # TODO: remove on 2.3.0
-      - sed --in-place "s/net5.0/net6.0/g" AM2RLauncher/AM2RLauncher.Gtk/AM2RLauncher.Gtk.csproj
       - dotnet publish AM2RLauncher/AM2RLauncher.Gtk --source ./nuget-sources -p:PublishSingleFile=true -p:DebugType=embedded -c Release -r ubuntu.18.04-x64 --self-contained true
       - cp -r --remove-destination /run/build/AM2RLauncher/AM2RLauncher/AM2RLauncher.Gtk/bin/Release/net6.0/ubuntu.18.04-x64/publish/* /app/bin/
       - mv /app/bin/AM2RLauncher.Gtk /app/bin/AM2RLauncher
@@ -116,8 +114,8 @@ modules:
       - nuget.json
       - type: git
         url: https://github.com/AM2R-Community-Developers/AM2RLauncher.git
-        tag: 2.2.0
-        commit: f655137d28ddc280b293b631eaa0a39a62d14d93
+        #tag: 2.2.0
+        commit: main
       - type: file
         path: io.github.am2r_community_developers.AM2RLauncher.appdata.xml
       - type: file
