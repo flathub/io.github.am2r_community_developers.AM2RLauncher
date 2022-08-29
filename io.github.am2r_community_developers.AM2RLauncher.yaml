@@ -67,22 +67,22 @@ modules:
     buildsystem: autotools
     subdir: xdelta3
 
-  - name: fusermout
-    config-opts:
-      - MOUNT_FUSE_PATH=/app/bin
-    post-install:
-      - install fusermount-wrapper.sh /app/bin/fusermount
-    sources:
-      - type: archive
-        url: https://github.com/libfuse/libfuse/releases/download/fuse-2.9.9/fuse-2.9.9.tar.gz
-        sha256: d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5
-        x-checker-data:
-          type: anitya
-          project-id: 861
-          url-template: https://github.com/libfuse/libfuse/releases/download/fuse-$version/fuse-$version.tar.gz
-          versions: {<: '3'}
-      - type: file
-        path: fusermount-wrapper.sh
+  #- name: fusermout
+#    config-opts:
+ #     - MOUNT_FUSE_PATH=/app/bin
+  #  post-install:
+#      - install fusermount-wrapper.sh /app/bin/fusermount
+#    sources:
+#      - type: archive
+#        url: https://github.com/libfuse/libfuse/releases/download/fuse-2.9.9/fuse-2.9.9.tar.gz
+#        sha256: d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5
+#        x-checker-data:
+#          type: anitya
+#          project-id: 861
+#          url-template: https://github.com/libfuse/libfuse/releases/download/fuse-$version/fuse-$version.tar.gz
+#          versions: {<: '3'}
+#      - type: file
+#        path: fusermount-wrapper.sh
 
   - name: openjdk
     buildsystem: simple
@@ -103,7 +103,7 @@ modules:
       - mkdir -p /app/bin
       - mkdir -p /app/lib/i386-linux-gnu
       - mkdir -p /app/lib/i386-linux-gnu/GL
-      - dotnet publish AM2RLauncher/AM2RLauncher.Gtk --source ./nuget-sources -p:PublishSingleFile=true -p:DebugType=embedded -p:DefineConstants=\"NoAppImage\;NoAutoUpdate\" -c Release -r ubuntu.18.04-x64 --self-contained true
+      - dotnet publish AM2RLauncher/AM2RLauncher.Gtk --source ./nuget-sources -p:PublishSingleFile=true -p:DebugType=embedded -p:DefineConstants="NOAPPIMAGE;NOAUTOUPDATE" -c Release -r ubuntu.18.04-x64 --self-contained true
       - cp -r --remove-destination /run/build/AM2RLauncher/AM2RLauncher/AM2RLauncher.Gtk/bin/Release/net6.0/ubuntu.18.04-x64/publish/* /app/bin/
       - mv /app/bin/AM2RLauncher.Gtk /app/bin/AM2RLauncher
 
