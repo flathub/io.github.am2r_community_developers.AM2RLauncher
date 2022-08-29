@@ -26,10 +26,8 @@ finish-args:
 - --talk-name=org.freedesktop.Notifications
 - --talk-name=org.kde.StatusNotifierWatcher
 
-# Fuse / Appimage related
-#- --talk-name=org.freedesktop.Flatpak.*
+# Controller / GPU etc.
 - --device=all
-#- --filesystem=/tmp
 
 # Java and x32 stuff
 - --env=JAVA_HOME=/app/jre
