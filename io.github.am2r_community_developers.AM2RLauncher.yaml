@@ -51,7 +51,7 @@ add-extensions:
     enable-if: active-gl-driver
 
 command: AM2RLauncher
-modules: 
+modules:
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
 
   - name: xdelta3
