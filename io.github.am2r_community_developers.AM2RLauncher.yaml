@@ -55,6 +55,20 @@ command: AM2RLauncher
 modules:
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
 
+  # GameMaker Studio 1.x games require this outdated library.
+  # Needs to be here, until a workaround can be found upstream.
+  - name: openssl110
+    sources:
+      - type: git
+        url: https://github.com/openssl/openssl
+        tag: OpenSSL_1_0_0-stable
+        commit: 27007233db5d6f8b91ed474c4e09dd7014871cc6
+    buildsystem: simple
+    build-commands:
+      - ./config
+      - make
+      - make INSTALL_PREFIX=/app install
+
   - name: xdelta3
     sources:
       - type: archive
