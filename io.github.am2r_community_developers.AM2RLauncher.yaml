@@ -6,6 +6,7 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet6
   - org.freedesktop.Sdk.Extension.openjdk11
   - org.gnome.Sdk.Compat.i386
+  - org.freedesktop.Sdk.Extension.toolchain-i386
 
 finish-args:
 # TODO: crashes with wayland on filepicker and font being whacky. Likely Eto bug, test and report there.
@@ -42,7 +43,8 @@ add-extensions:
 
   org.freedesktop.Platform.GL32:
     directory: lib/i386-linux-gnu/GL
-    version: '21.08'
+    version: '1.4'
+    versions: 21.08;1.4
     subdirectories: true
     no-autodownload: true
     autodelete: false
@@ -57,17 +59,29 @@ modules:
 
   # GameMaker Studio 1.x games require this outdated library.
   # Needs to be here, until a workaround can be found upstream.
-  - name: openssl110
+  - name: openssl
     sources:
-      - type: git
-        url: https://github.com/openssl/openssl
-        tag: OpenSSL_1_0_0-stable
-        commit: 27007233db5d6f8b91ed474c4e09dd7014871cc6
+    - type: git
+      url: https://github.com/openssl/openssl
+      tag: OpenSSL_1_0_0-stable
+      commit: 27007233db5d6f8b91ed474c4e09dd7014871cc6
     buildsystem: simple
+    build-options: &compat-i386-build-options
+      prepend-pkg-config-path: /app/lib32/pkgconfig:/usr/lib/i386-linux-gnu/pkgconfig
+      ldflags: -L/app/lib32
+      prepend-path: /usr/lib/sdk/toolchain-i386/bin
+      libdir: /app/lib32
+      env:
+        CC: i686-unknown-linux-gnu-gcc
+        CXX: i686-unknown-linux-gnu-g++
     build-commands:
-      - ./config
+      - ./Configure linux-generic32 --prefix=/app --libdir=lib32 shared
       - make
-      - make INSTALL_PREFIX=/app install
+      - make install_sw
+      # For some reason, permissions are borked after install
+      - chmod 755 /app/lib32/libcrypto.so.1.0.0
+      - chmod 755 /app/lib32/libssl.so.1.0.0
+      - chmod 755 -R /app/lib32/engines
 
   - name: xdelta3
     sources:
@@ -99,6 +113,8 @@ modules:
       - mkdir -p /app/bin
       - mkdir -p /app/lib/i386-linux-gnu
       - mkdir -p /app/lib/i386-linux-gnu/GL
+      - install -Dm644 -t /app/etc ld.so.conf
+
       - dotnet publish AM2RLauncher/AM2RLauncher.Gtk --source ./nuget-sources -p:PublishSingleFile=true -p:DebugType=embedded -p:DefineConstants="NOAPPIMAGE;NOAUTOUPDATE" -c Release -r ubuntu.18.04-x64 --self-contained true
       - cp -r --remove-destination /run/build/AM2RLauncher/AM2RLauncher/AM2RLauncher.Gtk/bin/Release/net6.0/ubuntu.18.04-x64/publish/* /app/bin/
       - mv /app/bin/AM2RLauncher.Gtk /app/bin/AM2RLauncher
@@ -112,6 +128,8 @@ modules:
         url: https://github.com/AM2R-Community-Developers/AM2RLauncher.git
         #tag: 2.2.0
         commit: main
+      - type: file
+        path: ld.so.conf
       - type: file
         path: io.github.am2r_community_developers.AM2RLauncher.appdata.xml
       - type: file
