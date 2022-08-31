@@ -54,26 +54,29 @@ add-extensions:
     enable-if: active-gl-driver
 
 command: AM2RLauncher
+
+x-compat-i386-build-options: &compat-i386-build-options
+  prepend-pkg-config-path: /app/lib32/pkgconfig:/usr/lib/i386-linux-gnu/pkgconfig
+  ldflags: -L/app/lib32
+  prepend-path: /usr/lib/sdk/toolchain-i386/bin
+  env:
+    CC: i686-unknown-linux-gnu-gcc
+    CXX: i686-unknown-linux-gnu-g++
+  libdir: /app/lib32
+
 modules:
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
 
   # GameMaker Studio 1.x games require this outdated library.
   # Needs to be here, until a workaround can be found upstream.
-  - name: openssl
+  - name: openssl-32bit
     sources:
     - type: git
       url: https://github.com/openssl/openssl
       tag: OpenSSL_1_0_0-stable
       commit: 27007233db5d6f8b91ed474c4e09dd7014871cc6
     buildsystem: simple
-    build-options: &compat-i386-build-options
-      prepend-pkg-config-path: /app/lib32/pkgconfig:/usr/lib/i386-linux-gnu/pkgconfig
-      ldflags: -L/app/lib32
-      prepend-path: /usr/lib/sdk/toolchain-i386/bin
-      libdir: /app/lib32
-      env:
-        CC: i686-unknown-linux-gnu-gcc
-        CXX: i686-unknown-linux-gnu-g++
+    build-options: *compat-i386-build-options
     build-commands:
       - ./Configure linux-generic32 --prefix=/app --libdir=lib32 shared
       - make
@@ -82,6 +85,22 @@ modules:
       - chmod 755 /app/lib32/libcrypto.so.1.0.0
       - chmod 755 /app/lib32/libssl.so.1.0.0
       - chmod 755 -R /app/lib32/engines
+
+  - name: glu-32bit
+    build-options:
+      arch:
+        x86_64: *compat-i386-build-options
+    config-opts:
+      - --disable-static
+    sources: &glu_sources
+      - type: archive
+        url: https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.xz
+        sha256: 6e7280ff585c6a1d9dfcdf2fca489251634b3377bfc33c29e4002466a38d02d4
+        x-checker-data:
+          type: anitya
+          project-id: 13518
+          stable-only: true
+          url-template: https://mesa.freedesktop.org/archive/glu/glu-$version.tar.xz
 
   - name: xdelta3
     sources:
@@ -99,6 +118,17 @@ modules:
     build-commands:
       - /usr/lib/sdk/openjdk11/install.sh
 
+  - name: 32bitBundle
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/bin
+      - mkdir -p /app/lib/i386-linux-gnu
+      - mkdir -p /app/lib/i386-linux-gnu/GL
+      - install -Dm644 -t /app/etc ld.so.conf
+    sources:
+      - type: file
+        path: ld.so.conf
+
   - name: AM2RLauncher
     buildsystem: simple
     build-options:
@@ -110,11 +140,6 @@ modules:
           env:
             RUNTIME: linux-x64
     build-commands:
-      - mkdir -p /app/bin
-      - mkdir -p /app/lib/i386-linux-gnu
-      - mkdir -p /app/lib/i386-linux-gnu/GL
-      - install -Dm644 -t /app/etc ld.so.conf
-
       - dotnet publish AM2RLauncher/AM2RLauncher.Gtk --source ./nuget-sources -p:PublishSingleFile=true -p:DebugType=embedded -p:DefineConstants="NOAPPIMAGE;NOAUTOUPDATE" -c Release -r ubuntu.18.04-x64 --self-contained true
       - cp -r --remove-destination /run/build/AM2RLauncher/AM2RLauncher/AM2RLauncher.Gtk/bin/Release/net6.0/ubuntu.18.04-x64/publish/* /app/bin/
       - mv /app/bin/AM2RLauncher.Gtk /app/bin/AM2RLauncher
@@ -128,8 +153,6 @@ modules:
         url: https://github.com/AM2R-Community-Developers/AM2RLauncher.git
         #tag: 2.2.0
         commit: main
-      - type: file
-        path: ld.so.conf
       - type: file
         path: io.github.am2r_community_developers.AM2RLauncher.appdata.xml
       - type: file
