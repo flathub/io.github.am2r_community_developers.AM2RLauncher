@@ -78,6 +78,13 @@
     },
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/eto.forms/2.7.1/eto.forms.2.7.1.nupkg",
+        "sha512": "f95234fd6bf8d5518980f22c491189c0c2c7cd545a8dac025d4f8f6c2ffa7338b52a17c61d680b475c69d41f56a9bb55252de99999bcd0026b8cf0f6e4c72b5b",
+        "dest": "nuget-sources",
+        "dest-filename": "eto.forms.2.7.1.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/eto.platform.gtk/2.6.0/eto.platform.gtk.2.6.0.nupkg",
         "sha512": "c79c8c94ba0af345aac787199fc359bc60f730ee96825d8c1945fbc2335bc50a47fca01db481e50687dedd2be8f317d985c32660290bb5651a8cdadfae48cce6",
         "dest": "nuget-sources",
@@ -89,6 +96,13 @@
         "sha512": "d88983044d5d02b099085eed43901c03dafc71263d263fcc2da6973a9ffad8685f90eb2055774a2faa49803693f91067743f00490f80c5ff1f4b11411d32c939",
         "dest": "nuget-sources",
         "dest-filename": "eto.platform.gtk.2.7.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/eto.platform.gtk/2.7.1/eto.platform.gtk.2.7.1.nupkg",
+        "sha512": "7f5728ace31afca7dbbbeeb4b65ec7a38b9ca5970e573f73cf5ef43486c133795ee699e83f65ef253baf1a4bf72297f796aeb12739a9230d57f5f1c9f9553ffa",
+        "dest": "nuget-sources",
+        "dest-filename": "eto.platform.gtk.2.7.1.nupkg"
     },
     {
         "type": "file",
@@ -145,6 +159,13 @@
         "sha512": "e099a3d33d0065a8bc186c8674514048f8197dedbd17634166ee36874618ab5403ad60942d60c7b295e09762f721876027c6d08063c07fbd782c05e4525059ab",
         "dest": "nuget-sources",
         "dest-filename": "log4net.2.0.14.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/log4net/2.0.15/log4net.2.0.15.nupkg",
+        "sha512": "e44fa0808300174fdb881b802cea77fe1d8be6e7b827fcc4c44ae1b8720b81021678bdd247376b71dbfdc5882b938159ea4e534ccb9c0438026b6fef16b5ca1e",
+        "dest": "nuget-sources",
+        "dest-filename": "log4net.2.0.15.nupkg"
     },
     {
         "type": "file",
