@@ -73,7 +73,7 @@ modules:
     sources:
     - type: git
       url: https://github.com/openssl/openssl
-      tag: OpenSSL_1_0_0-stable
+      branch: OpenSSL_1_0_0-stable
       commit: 27007233db5d6f8b91ed474c4e09dd7014871cc6
     buildsystem: simple
     build-options: *compat-i386-build-options
