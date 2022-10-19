@@ -9,7 +9,7 @@
     {
         "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/6.0.10/microsoft.netcore.app.runtime.linux-x64.6.0.10.nupkg",
-        "sha512": "723573014898c4fbfde3d99797421bc33491ab4c414c6716dcdeb5f4251c0b07b7e4c6b50b54e0d6787be5773e3849f9f9e00c5bf4bae9dcbe91085d736efbb4",
+        "sha512": "316628636d605a940564b22ce8912a422e44ed111eea8a643a2d9c5da1c2250aeb0e36d9a5cfda86e5b934c629332b28a0065fff25dff167ecaf1b742d986fea",
         "dest": "nuget-sources",
         "dest-filename": "microsoft.netcore.app.runtime.linux-x64.6.0.10.nupkg"
     },
