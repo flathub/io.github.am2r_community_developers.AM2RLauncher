@@ -147,7 +147,7 @@ modules:
       - install -Dm644 AM2RLauncher/distribution/linux/AM2RLauncher.appdata.xml /app/share/metainfo/$FLATPAK_ID.appdata.xml
       - install -Dm644 AM2RLauncher/distribution/linux/AM2RLauncher.png /app/share/icons/hicolor/128x128/apps/$FLATPAK_ID.png
       - install -Dm644 AM2RLauncher/distribution/linux/AM2RLauncher.desktop /app/share/applications/$FLATPAK_ID.desktop
-      - sed -i 's/AM2RLauncher/$FLATPAK_ID/g' /app/share/applications/$FLATPAK_ID.desktop
+      - sed -i "s/AM2RLauncher/$FLATPAK_ID/g" /app/share/applications/$FLATPAK_ID.desktop
     sources:
       - nuget.json
       - type: git
