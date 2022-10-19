@@ -17,11 +17,10 @@ finish-args:
 - --share=network
 - --socket=pulseaudio
 
-# Home for getting the 1.1 zip, desktop to write shortcut file, config because of profiles having their saves there (hardcoded), apktool for apk creation
+# Home for getting the 1.1 zip, desktop to write shortcut file, config because of profiles having their saves there (hardcoded)
 - --filesystem=home:ro
 - --filesystem=xdg-desktop
 - --filesystem=~/.config/
-#- --filesystem=xdg-data/apktool/:create
 
 # libappindicator stuff
 - --talk-name=com.canonical.indicator.application
