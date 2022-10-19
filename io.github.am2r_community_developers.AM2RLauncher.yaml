@@ -21,7 +21,7 @@ finish-args:
 - --filesystem=home:ro
 - --filesystem=xdg-desktop
 - --filesystem=~/.config/
-- --filesystem=xdg-data/apktool/:create
+#- --filesystem=xdg-data/apktool/:create
 
 # libappindicator stuff
 - --talk-name=com.canonical.indicator.application
