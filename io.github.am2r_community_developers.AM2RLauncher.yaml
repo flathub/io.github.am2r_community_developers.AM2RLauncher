@@ -143,10 +143,11 @@ modules:
       - cp -r --remove-destination /run/build/AM2RLauncher/AM2RLauncher/AM2RLauncher.Gtk/bin/Release/net6.0/ubuntu.18.04-x64/publish/* /app/bin/
       - mv /app/bin/AM2RLauncher.Gtk /app/bin/AM2RLauncher
 
+
       - install -Dm644 AM2RLauncher/distribution/linux/AM2RLauncher.appdata.xml /app/share/metainfo/$FLATPAK_ID.appdata.xml
       - install -Dm644 AM2RLauncher/distribution/linux/AM2RLauncher.png /app/share/icons/hicolor/128x128/apps/$FLATPAK_ID.png
+      - sed -i "s/Icon=AM2RLauncher/Icon=$FLATPAK_ID/g" AM2RLauncher/distribution/linux/AM2RLauncher.desktop
       - install -Dm644 AM2RLauncher/distribution/linux/AM2RLauncher.desktop /app/share/applications/$FLATPAK_ID.desktop
-      - sed -i "s/AM2RLauncher/$FLATPAK_ID/g" /app/share/applications/$FLATPAK_ID.desktop
     sources:
       - nuget.json
       - type: git
