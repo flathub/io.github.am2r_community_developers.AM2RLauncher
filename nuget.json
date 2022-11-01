@@ -1,6 +1,34 @@
 [
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.10/microsoft.aspnetcore.app.runtime.linux-x64.6.0.10.nupkg",
+        "sha512": "5d272d25ef3902b3e9bc413eccca4ba8536a7bfd7dfd2690083b4074292399e87f6623b7344723271f1cd4d40acfb7dae32a6ee34578286da5baaec8d7295771",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-x64.6.0.10.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/6.0.10/microsoft.netcore.app.runtime.linux-x64.6.0.10.nupkg",
+        "sha512": "316628636d605a940564b22ce8912a422e44ed111eea8a643a2d9c5da1c2250aeb0e36d9a5cfda86e5b934c629332b28a0065fff25dff167ecaf1b742d986fea",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.runtime.linux-x64.6.0.10.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.8/microsoft.aspnetcore.app.runtime.linux-x64.6.0.8.nupkg",
+        "sha512": "dc78a0e6c3f800b9b469a07771809d8665b46ba4a04f6dd179a3f9a18399f69d5f428432e1f1de2e55362d74135e0243a29777b1064269683adfdac9098a6989",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-x64.6.0.8.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/6.0.8/microsoft.netcore.app.runtime.linux-x64.6.0.8.nupkg",
+        "sha512": "723573014898c4fbfde3d99797421bc33491ab4c414c6716dcdeb5f4251c0b07b7e4c6b50b54e0d6787be5773e3849f9f9e00c5bf4bae9dcbe91085d736efbb4",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.runtime.linux-x64.6.0.8.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.7/microsoft.aspnetcore.app.runtime.linux-x64.6.0.7.nupkg",
         "sha512": "ed363dcbbec09e62dbfcfccab6b0c2dcc7ad6603d2ff84f82928bd86b02b5c1ef13511bf6964a7afb3e58c2e1e46726c750121e4d48d02357b608fbeba274d01",
         "dest": "nuget-sources",
@@ -64,6 +92,13 @@
     },
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/eto.forms/2.7.1/eto.forms.2.7.1.nupkg",
+        "sha512": "f95234fd6bf8d5518980f22c491189c0c2c7cd545a8dac025d4f8f6c2ffa7338b52a17c61d680b475c69d41f56a9bb55252de99999bcd0026b8cf0f6e4c72b5b",
+        "dest": "nuget-sources",
+        "dest-filename": "eto.forms.2.7.1.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/eto.platform.gtk/2.6.0/eto.platform.gtk.2.6.0.nupkg",
         "sha512": "c79c8c94ba0af345aac787199fc359bc60f730ee96825d8c1945fbc2335bc50a47fca01db481e50687dedd2be8f317d985c32660290bb5651a8cdadfae48cce6",
         "dest": "nuget-sources",
@@ -75,6 +110,13 @@
         "sha512": "d88983044d5d02b099085eed43901c03dafc71263d263fcc2da6973a9ffad8685f90eb2055774a2faa49803693f91067743f00490f80c5ff1f4b11411d32c939",
         "dest": "nuget-sources",
         "dest-filename": "eto.platform.gtk.2.7.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/eto.platform.gtk/2.7.1/eto.platform.gtk.2.7.1.nupkg",
+        "sha512": "7f5728ace31afca7dbbbeeb4b65ec7a38b9ca5970e573f73cf5ef43486c133795ee699e83f65ef253baf1a4bf72297f796aeb12739a9230d57f5f1c9f9553ffa",
+        "dest": "nuget-sources",
+        "dest-filename": "eto.platform.gtk.2.7.1.nupkg"
     },
     {
         "type": "file",
@@ -131,6 +173,13 @@
         "sha512": "e099a3d33d0065a8bc186c8674514048f8197dedbd17634166ee36874618ab5403ad60942d60c7b295e09762f721876027c6d08063c07fbd782c05e4525059ab",
         "dest": "nuget-sources",
         "dest-filename": "log4net.2.0.14.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/log4net/2.0.15/log4net.2.0.15.nupkg",
+        "sha512": "e44fa0808300174fdb881b802cea77fe1d8be6e7b827fcc4c44ae1b8720b81021678bdd247376b71dbfdc5882b938159ea4e534ccb9c0438026b6fef16b5ca1e",
+        "dest": "nuget-sources",
+        "dest-filename": "log4net.2.0.15.nupkg"
     },
     {
         "type": "file",
