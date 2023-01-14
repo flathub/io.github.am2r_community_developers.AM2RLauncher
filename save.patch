@@ -1,0 +1,44 @@
+From d1419c6a088509d8079ccaf4d36d8bda0fe47bf9 Mon Sep 17 00:00:00 2001
+From: Miepee <janbidler00@protonmail.com>
+Date: Sat, 14 Jan 2023 01:37:45 +0100
+Subject: [PATCH] Fixes Launcher not playing correctly on Linux when save
+ folder does not exist.
+
+---
+ AM2RLauncher/AM2RLauncher/MainForm/MainForm.Events.cs | 4 ++--
+ AM2RLauncher/AM2RLauncherLib/Profile.cs               | 5 ++++-
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/AM2RLauncher/AM2RLauncher/MainForm/MainForm.Events.cs b/AM2RLauncher/AM2RLauncher/MainForm/MainForm.Events.cs
+index 5f4344c..b32e840 100644
+--- a/AM2RLauncher/AM2RLauncher/MainForm/MainForm.Events.cs
++++ b/AM2RLauncher/AM2RLauncher/MainForm/MainForm.Events.cs
+@@ -445,9 +445,9 @@ private async void PlayButtonClickEvent(object sender, EventArgs e)
+                 {
+                     await Task.Run(() => Profile.RunGame(profile, createDebugLogs));
+                 }
+-                catch
++                catch(Exception ex)
+                 {
+-                    // ignore any errors that occur.
++                    MessageBox.Show($"{Text.UnhandledException}\n*****Stack Trace*****\n\n{ex}", Text.ErrorWindowTitle, MessageBoxType.Error);
+                 }
+ 
+                 ShowInTaskbar = true;
+diff --git a/AM2RLauncher/AM2RLauncherLib/Profile.cs b/AM2RLauncher/AM2RLauncherLib/Profile.cs
+index d73f20c..1350538 100644
+--- a/AM2RLauncher/AM2RLauncherLib/Profile.cs
++++ b/AM2RLauncher/AM2RLauncherLib/Profile.cs
+@@ -768,8 +768,11 @@ public static void RunGame(ProfileXML profile, bool useLogging)
+             // has fullscreen set to false, so they don't run into any issues. Game will handle the rest.
+             string am2rConfigPath = profile.SaveLocation.Replace("~", CrossPlatformOperations.Home) + "/config.ini";
+             if (!File.Exists(am2rConfigPath))
++            {
++                Directory.CreateDirectory(Path.GetDirectoryName(am2rConfigPath));
+                 File.WriteAllText(am2rConfigPath, "[Screen]\nFullscreen=\"0\"\nScale=\"3\"");
+-            
++            }
++
+             ProcessStartInfo startInfo = new ProcessStartInfo
+             {
+                 UseShellExecute = false,
