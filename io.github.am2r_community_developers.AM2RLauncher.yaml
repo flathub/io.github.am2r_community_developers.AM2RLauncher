@@ -152,9 +152,6 @@ modules:
       - nuget.json
       - type: git
         url: https://github.com/AM2R-Community-Developers/AM2RLauncher.git
-        #tag:  2.3.0 + fix of appdata date
+        #tag:  2.3.0
         commit: 3b10e7ae40d1e3d6e11d97379ff06dd0ab0466a7
-        # Backported commit that fixes game not launching due to save folder not existing
-      - type: patch
-        path: save.patch
 
