@@ -162,6 +162,13 @@
     },
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/libgit2sharp/0.27.0/libgit2sharp.0.27.0.nupkg",
+        "sha512": "a9bef7a4b00fa674c51c4f5dfc431e143a096be68c9cb574ec8106aeee7df1c9e12574fdf0d870bd2d1f30149b6decdf006710eee091afd74db85e522cf220f4",
+        "dest": "nuget-sources",
+        "dest-filename": "libgit2sharp.0.27.0.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/libgit2sharp/0.26.2/libgit2sharp.0.26.2.nupkg",
         "sha512": "33e741d182d9c089f9a456d8550d6ed7d5986a5841f461bac3f29c8cf2ca243000bbbdc8d09baf1021e64635b4cacb8d7fdb87bd8ee55f8d18c400a25b63dda8",
         "dest": "nuget-sources",
