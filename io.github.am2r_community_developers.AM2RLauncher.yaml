@@ -152,5 +152,5 @@ modules:
       - nuget.json
       - type: git
         url: https://github.com/AM2R-Community-Developers/AM2RLauncher.git
-        #tag:  2.3.0 + fix of appdata date
-        commit: 304d6062044a44ecf5c7f83b06c9fceecf4b8006
+        #tag:  indev commit
+        commit: c86dee019dbc86ff3d9ba8ccab706537289a2e1d
