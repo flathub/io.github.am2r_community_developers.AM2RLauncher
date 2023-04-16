@@ -140,7 +140,7 @@ modules:
             RUNTIME: linux-x64
     build-commands:
       - dotnet publish AM2RLauncher/AM2RLauncher.Gtk --source ./nuget-sources -p:PublishSingleFile=true -p:DebugType=embedded -p:DefineConstants=\"NOAPPIMAGE\;NOAUTOUPDATE\" -c Release -r ubuntu.18.04-x64 --self-contained true
-      - cp -r --remove-destination /run/build/AM2RLauncher/AM2RLauncher/AM2RLauncher.Gtk/bin/Release/net7.0/ubuntu.18.04-x64/publish/* /app/bin/
+      - cp -r --remove-destination /run/build/AM2RLauncher/AM2RLauncher/AM2RLauncher.Gtk/bin/Release/net6.0/ubuntu.18.04-x64/publish/* /app/bin/
       - mv /app/bin/AM2RLauncher.Gtk /app/bin/AM2RLauncher
       # HACK: until Eto properly supports the new libwebkit version, I'll just sed the string
       - sed -i "s/libwebkit2gtk-4.0.so.37/libwebkit2gtk-4.1.so.0\x0/g" /app/bin/AM2RLauncher
