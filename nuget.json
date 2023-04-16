@@ -176,6 +176,13 @@
     },
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/libgit2sharp.nativebinaries/2.0.319/libgit2sharp.nativebinaries.2.0.319.nupkg",
+        "sha512": "8a6d1e9d1422bef6d9acb83f7c247fe31316fde8005939569586ba54fe8e9b74fccba35f59e4fdbbfb1c034c08456c2c2e4b7b42621f25bc20eb5d8daca51473",
+        "dest": "nuget-sources",
+        "dest-filename": "libgit2sharp.nativebinaries.2.0.319.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/libgit2sharp.nativebinaries/2.0.306/libgit2sharp.nativebinaries.2.0.306.nupkg",
         "sha512": "8d47133fbc1bd535fb8a1c590010a4ba93bac34d05d40ba2bf86f3ed57d51ad0535f75dd62708de0b519af1f1ad004487f7144a98c23126fa1418090c4486e64",
         "dest": "nuget-sources",
