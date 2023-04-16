@@ -155,4 +155,4 @@ modules:
       - type: git
         url: https://github.com/AM2R-Community-Developers/AM2RLauncher.git
         #tag:  indev commit
-        commit: c5b011627ba32528e005251fd1f6ac32e206b268
+        commit: 3583ef65c88d00735a2a6a2cedf51e296b0ae930
